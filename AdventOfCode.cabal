@@ -2,7 +2,7 @@ name:                AdventOfCode
 version:             0.1.0.0
 synopsis:            Play with the advent of code exercises
 homepage:            https://github.com/githubuser/AdventOfCode#readme
-license:             Apache 2
+license:             BSD3
 license-file:        LICENSE
 author:              t-bast
 maintainer:          bastien.teinturier@outlook.com
