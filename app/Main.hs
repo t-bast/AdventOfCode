@@ -10,4 +10,4 @@ day1 :: IO ()
 day1 = do
     input <- getLine
     let inputs = map digitToInt input
-    putStrLn $ show $ captcha inputs
+    putStrLn $ show $ captcha2 inputs
