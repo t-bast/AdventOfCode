@@ -1,8 +1,8 @@
 module Main where
 
 import Data.Char
-import Day1
-import Day2
+import qualified Day1
+import qualified Day2
 
 main :: IO ()
 main = day2
@@ -20,10 +20,10 @@ day1 :: IO ()
 day1 = do
     input <- getLine
     let inputs = map digitToInt input
-    putStrLn $ show $ captcha2 inputs
+    putStrLn $ show $ Day1.captcha2 inputs
 
 day2 :: IO ()
 day2 = do
     spreadsheet <- readLines
     let spreadsheetLines = map (map (read :: String -> Int) . words) spreadsheet
-    putStrLn $ show $ checksum spreadsheetLines
+    putStrLn $ show $ Day2.checksum2 spreadsheetLines
