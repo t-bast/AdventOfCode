@@ -3,9 +3,10 @@ module Main where
 import Data.Char
 import qualified Day1
 import qualified Day2
+import qualified Day3
 
 main :: IO ()
-main = day2
+main = day3
 
 readLines :: IO [String]
 readLines = do
@@ -27,3 +28,8 @@ day2 = do
     spreadsheet <- readLines
     let spreadsheetLines = map (map (read :: String -> Int) . words) spreadsheet
     putStrLn $ show $ Day2.checksum2 spreadsheetLines
+
+day3 :: IO ()
+day3 = do
+    input <- readLn :: IO Int
+    putStrLn $ show $ Day3.distance input
