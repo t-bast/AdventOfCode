@@ -17,3 +17,10 @@ spec = do
 
         it "produces 31 for distance to 1024" $ do
             distance 1024 `shouldBe` 31
+
+    describe "Day 3_2" $ do
+        it "produces 1 for 1" $ do
+            value 1 `shouldBe` 1
+
+        it "produces 5 for 5" $ do
+            value 5 `shouldBe` 5

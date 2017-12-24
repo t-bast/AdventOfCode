@@ -32,4 +32,4 @@ day2 = do
 day3 :: IO ()
 day3 = do
     input <- readLn :: IO Int
-    putStrLn $ show $ Day3.distance input
+    putStrLn $ show $ Day3.value input
