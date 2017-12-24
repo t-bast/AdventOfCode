@@ -6,7 +6,7 @@ captcha l@(x:_) = captchaEx x l
 
 captchaEx :: Int -> [Int] -> Int
 captchaEx _ [] = 0
-captchaEx n (m:[])
+captchaEx n [m]
     | n == m = n
     | otherwise = 0
 captchaEx x (n:m:rest)
@@ -22,7 +22,7 @@ captcha2Ex i l
     | i == length l = 0
     | otherwise = 
         if current == halfway 
-        then current + (captcha2Ex (i+1) l) 
+        then current + captcha2Ex (i + 1) l 
         else captcha2Ex (i+1) l
         where
             len = length l
