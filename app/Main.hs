@@ -4,9 +4,10 @@ import Data.Char
 import qualified Day1
 import qualified Day2
 import qualified Day3
+import qualified Day4
 
 main :: IO ()
-main = day3
+main = day4
 
 readLines :: IO [String]
 readLines = do
@@ -21,15 +22,20 @@ day1 :: IO ()
 day1 = do
     input <- getLine
     let inputs = map digitToInt input
-    putStrLn $ show $ Day1.captcha2 inputs
+    print $ Day1.captcha2 inputs
 
 day2 :: IO ()
 day2 = do
     spreadsheet <- readLines
     let spreadsheetLines = map (map (read :: String -> Int) . words) spreadsheet
-    putStrLn $ show $ Day2.checksum2 spreadsheetLines
+    print $ Day2.checksum2 spreadsheetLines
 
 day3 :: IO ()
 day3 = do
     input <- readLn :: IO Int
-    putStrLn $ show $ Day3.value input
+    print $ Day3.value input
+
+day4 :: IO ()
+day4 = do
+    passphrases <- readLines
+    print $ Day4.countValid passphrases
