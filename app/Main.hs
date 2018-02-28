@@ -45,4 +45,4 @@ day4 = do
 day5 :: IO ()
 day5 = do
     input <- readLines
-    print $ Day5.escape $ map (\x -> read x :: Int) input
+    print $ Day5.escape2 $ map (\x -> read x :: Int) input
