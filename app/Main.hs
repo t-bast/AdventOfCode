@@ -13,10 +13,10 @@ readLines :: IO [String]
 readLines = do
     line <- getLine
     if null line
-    then return []
-    else do
-        rest <- readLines
-        return (line:rest)
+        then return []
+        else do
+            rest <- readLines
+            return (line : rest)
 
 day1 :: IO ()
 day1 = do
@@ -27,7 +27,8 @@ day1 = do
 day2 :: IO ()
 day2 = do
     spreadsheet <- readLines
-    let spreadsheetLines = map (map (read :: String -> Int) . words) spreadsheet
+    let spreadsheetLines =
+            map (map (read :: String -> Int) . words) spreadsheet
     print $ Day2.checksum2 spreadsheetLines
 
 day3 :: IO ()
@@ -38,4 +39,4 @@ day3 = do
 day4 :: IO ()
 day4 = do
     passphrases <- readLines
-    print $ Day4.countValid passphrases
+    print $ Day4.countValid2 passphrases
