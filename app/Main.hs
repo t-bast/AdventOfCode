@@ -5,9 +5,10 @@ import qualified Day1
 import qualified Day2
 import qualified Day3
 import qualified Day4
+import qualified Day5
 
 main :: IO ()
-main = day4
+main = day5
 
 readLines :: IO [String]
 readLines = do
@@ -40,3 +41,8 @@ day4 :: IO ()
 day4 = do
     passphrases <- readLines
     print $ Day4.countValid2 passphrases
+
+day5 :: IO ()
+day5 = do
+    input <- readLines
+    print $ Day5.escape $ map (\x -> read x :: Int) input
