@@ -6,9 +6,10 @@ import qualified Day2
 import qualified Day3
 import qualified Day4
 import qualified Day5
+import qualified Day6
 
 main :: IO ()
-main = day5
+main = day6
 
 readLines :: IO [String]
 readLines = do
@@ -46,3 +47,8 @@ day5 :: IO ()
 day5 = do
     input <- readLines
     print $ Day5.escape2 $ map (\x -> read x :: Int) input
+
+day6 :: IO ()
+day6 = do
+    input <- readLines
+    print $ Day6.redistribute $ map (\x -> read x :: Int) input
