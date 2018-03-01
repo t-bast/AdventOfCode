@@ -51,4 +51,4 @@ day5 = do
 day6 :: IO ()
 day6 = do
     input <- readLines
-    print $ Day6.redistribute $ map (\x -> read x :: Int) input
+    print $ Day6.loop $ map (\x -> read x :: Int) input

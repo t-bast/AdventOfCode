@@ -1,4 +1,4 @@
-module Day6 (redistribute) where
+module Day6 (redistribute, loop) where
 
 import qualified Data.Map.Strict as Map
 import Debug.Trace
@@ -35,12 +35,11 @@ equals mb1 mb2
 
 next :: MemoryBanks -> MemoryBanks
 --next mb | trace (show mb) False = undefined
-next mb                         = next' n i mb'
+next mb = next' n i mb'
   where
     (i, n) = foldr
-        ( \(curIndex, curVal) (maxIndex, maxVal) -> if curVal < maxVal
-            then (maxIndex, maxVal)
-            else (curIndex, curVal)
+        ( \(curIndex, curVal) (maxIndex, maxVal) ->
+            if curVal < maxVal then (maxIndex, maxVal) else (curIndex, curVal)
         )
         (0, (Map.!) mb 0)
         (Map.toList mb)
@@ -53,3 +52,15 @@ next' n i mb = next' (n - 1) nextIndex nextMb
     l         = length mb
     nextIndex = ((i + 1) `mod` l)
     nextMb    = Map.update (\x -> Just (x + 1)) nextIndex mb
+
+-- Challenge 2
+
+loop :: [Int] -> Int
+loop mb = 1 + find loopState mbs
+  where
+    mb'       = Map.fromList $ zip [0 .. length mb] mb
+    mbs       = redistribute' mb' []
+    loopState = next . head $ mbs
+
+find :: MemoryBanks -> [MemoryBanks] -> Int
+find mb = length . takeWhile (not . (equals mb))
